@@ -1,3 +1,13 @@
+Here is a list of curl calls that you can use to test the APIs
+These calls include the following actions
+1. Getting all speeches
+2. Creating a new a speech
+3. Editing a speech
+4. Deleting a speech
+5. Searching for a speech
+
+
+
 // get all speeches
 curl -X GET http://localhost:8080/api/speeches
 
@@ -5,7 +15,7 @@ curl -X GET http://localhost:8080/api/speeches
 curl -X POST http://localhost:8080/api/speeches \
 -H "Content-Type: application/json" \
 -d '{
-  "author": "Austin J",
+  "author": "Austin",
   "speechText": "This is my example speech with amazing content",
   "keywords": ["example", "amazing"],
   "speechDate": "2050-01-01"
@@ -13,7 +23,7 @@ curl -X POST http://localhost:8080/api/speeches \
 
 // edit a speech
 // replace {id} with id of speech to edit
-curl -X PUT http://localhost:8080/api/speeches/{id} \           
+curl -X PUT "http://localhost:8080/api/speeches/{id}" \
 -H "Content-Type: application/json" \
 -d '{
   "author": "J. Jonah Jameson",
@@ -28,8 +38,8 @@ curl -X DELETE http://localhost:8080/api/speeches/{id}
 
 // search for a speech
 // to search for all fields. fields combined using &
-curl -X GET "http://localhost:8080/api/speeches/search?author=Bob Smith&startDate=2015-01-01&endDate=2024-12-31&snippet=speech"
-// can also search only a few fields, for example here it searches only by author
-curl -X GET "http://localhost:8080/api/speeches/search?author=Bob Smith"
+curl -X GET "http://localhost:8080/api/speeches/search?author=Bob Smith&startDate=2015-01-01&endDate=2024-12-31&snippet=speech&keyword=word"
+// can also search by one or only a few fields, for example here it searches only by author and text snippet
+curl -X GET "http://localhost:8080/api/speeches/search?author=Bob Smith&snippet=speech"
 
 

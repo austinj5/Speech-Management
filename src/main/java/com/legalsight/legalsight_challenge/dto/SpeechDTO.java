@@ -12,6 +12,18 @@ public class SpeechDTO {
     private List<String> keywords;
     private LocalDate speechDate;
 
+    public SpeechDTO () {
+
+    }
+
+    public SpeechDTO(Long id, String author, String speechText, List<String> keywords, LocalDate speechDate) {
+        this.id = id;
+        this.author = author;
+        this.speechText = speechText;
+        this.keywords = keywords;
+        this.speechDate = speechDate;
+    }
+
     // Getters and Setters
     public Long getId() {
         return id;

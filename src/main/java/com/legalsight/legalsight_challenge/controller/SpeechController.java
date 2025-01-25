@@ -34,8 +34,8 @@ public class SpeechController {
 
     // PUT
     @PutMapping("/{id}")
-    public SpeechDTO updateSpeech(@PathVariable Long id, @RequestBody SpeechDTO speechDTO) {
-        return speechService.updateSpeech(id, speechDTO);
+    public SpeechDTO editSpeech(@PathVariable Long id, @RequestBody SpeechDTO speechDTO) {
+        return speechService.editSpeech(id, speechDTO);
     }
 
     // DELETE   
@@ -51,7 +51,8 @@ public class SpeechController {
             @RequestParam(required = false) String author,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
-            @RequestParam(required = false) String snippet) {
-        return speechService.searchSpeeches(author, startDate, endDate, snippet);
+            @RequestParam(required = false) String snippet,
+            @RequestParam(required = false) String keyword) {
+        return speechService.searchSpeeches(author, startDate, endDate, snippet, keyword);
     }
 }
